@@ -1,0 +1,31 @@
+* {
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.context{position: absolute;left: 100px;top: 170px;height: 500px;width: 100%;}
+
+		#content1{
+
+		}
+		.context .text{position: absolute;}
+		.context .text img{
+			zoom:.5;
+			width: 100%;
+		}
+		.context .clock{position: absolute;
+        left: 0;
+        width: 438px;
+        top: 60px;
+		}
+		.context .clock img{
+			width:100%;
+			display:block;
+		}
+		.context .clock .first{position: absolute;}
+		.context .clock .second{position: absolute;width: 67%;left: 65px;top: 28px;}
+
+		.context .hand{position: absolute;left: -13px;bottom: 0;}
+
+		.context .hand img{zoom: .5;}

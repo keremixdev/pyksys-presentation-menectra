@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/popup.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		* {
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		.clr {
+			position: absolute;
+			left: 479px;
+			top: 381px;
+		}
+		
+		.clr>img {
+			display: block;
+			zoom: .5;
+		}
+		
+		.touch {
+			position: absolute;
+			left: 0;
+			bottom: 40px;
+			z-index: 10;
+		}
+		
+		.touch img {
+			zoom: .5;
+		}
+		
+		.touch>div {
+			position: absolute;
+			left: 87px;
+			bottom: 63px;
+		}
+		
+		#hand {
+			position: absolute;
+		}
+		
+		#refresh {
+			display: none;
+		}
+
+		#inner_content{
+			position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 680px;
+		}
+	</style>
+
+	<script>
+		$(function () {
+			var currentIndex = 0;
+			var hand = $('#hand');
+			var refs = $('#refresh');
+			var cont = $('#inner_content');
+
+			cont.click(function(){
+				toggleMenu();
+			});
+
+			function toggleMenu(index) {
+
+				if (currentIndex == 1) {
+					currentIndex = 0;
+					hand.show();
+					refs.hide();
+				} else {
+					currentIndex = 1;
+					hand.hide();
+					refs.show();
+				}
+
+				cont.find('img').hide().eq(currentIndex).show();
+			}
+		});
+	</script>
+
+</head>
+
+<body>
+
+	<div id="hand" class="touch">
+		<div><img src="media/images/el.png" /></div>
+	</div>
+	<div id="refresh" class="touch">
+		<div><img src="media/images/refresh.png" /></div>
+	</div>
+
+	<div id="inner_content">
+		<div id="blue" class="clr">
+			<img src="media/images/1.png" />
+		</div>
+		<div id="blueopacity" class="clr">
+			<img src="media/images/2.png" /></div>
+	</div>
+	<img src="media/images/MEN_Menenjit_YasGruplarinaGoreVakaSayisi1-01.jpg" width="1024" height="768" usemap="#Map" />
+    <map name="Map">
+      <area shape="rect" coords="69,707,353,769" href="javascript:popup('MEN_Menenjit_YasGruplarinaGoreVakaSayisi1_R-01.png',0,0);">
+    </map>
+<script>
+		document.ontouchmove = function (e) { e.preventDefault(); };
+	</script>
+</body>
+
+</html>

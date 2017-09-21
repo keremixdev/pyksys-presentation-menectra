@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+ <meta name="format-detection" content="telephone=no">
+ <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"> 
+	  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/popup.js" type="text/javascript" charset="utf-8"></script>
+<link href="css/main.css" rel="stylesheet"/>
+	<style>
+	
+
+	</style>
+	<script>
+		$(function () {
+			
+			var contents = $('.mix.context');
+			var index = 0;
+			var length = contents.length;
+
+			contents.hide().each(function(){
+
+				var item = $(this);
+				item.click(function(){
+					index = index < length -1 ? ++index : 0;
+					showContent(index);
+				});
+
+			});
+
+			contents.eq(0).show();
+
+			function showContent(index){
+				contents.hide().eq(index).show();
+			}
+
+
+		});
+	</script>
+
+	
+</head>
+<body>
+<img src="media/images/MEN_Serogruplar_Turkiye_2013-2014-01.jpg" width="1024" height="768" usemap="#Map"/>
+<map name="Map">
+  <area shape="rect" coords="68,711,686,785" href="javascript:popup('MEN_Serogruplar_Turkiye_2013-2014_R-01.png',0,0);">
+</map>
+
+<div id="content1" class="context mix">
+  <div class="text"><img src="media/images/1.png" /></div>
+	
+		<div class="hand">
+			<img src="media/images/el.png" />
+		</div>
+	</div>
+	<div id="content2" class="context mix">
+		<div class="text"><img src="media/images/2.png" /></div>
+	
+		<div class="hand">
+			<img src="media/images/refresh.png" />
+		</div>
+	</div>
+<script>
+document.ontouchmove = function (e) {e.preventDefault();};</script>
+</body>
+</html>

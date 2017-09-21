@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/popup.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		* {
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		.touch {
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    z-index: 10;
+		}
+		
+		.touch img {
+			zoom: .5;
+		}
+		
+		.touch>div {
+			position: absolute;
+			left: 87px;
+			bottom: 63px;
+		}
+		
+		#hand {
+			position: absolute;
+		}
+		
+		#refresh {
+			display: none;
+		}
+	</style>
+	<script>
+		$(function () {
+			var hand = $('#hand');
+			var refs = $('#refresh');
+			var cont = $('#inner_content>img');
+
+			cont.each(function(index,item){
+				$(this).click(function(){
+					toggleMenu(index);
+				});
+			});
+
+
+			function toggleMenu(index) {
+				if(index == 1){
+					hand.show();
+					refs.hide();
+				}else{
+					hand.hide();
+					refs.show();
+				}
+
+				cont.hide().eq(index == 0 ? 1 : 0 ).show();
+			}
+		});
+	</script>
+
+</head>
+
+<body>
+	<div id="hand" class="touch">
+		<div><img src="media/images/el.png" /></div>
+	</div>
+	<div id="refresh" class="touch">
+		<div><img src="media/images/refresh.png" /></div>
+	</div>
+	<div id="inner_content">
+		<img src="media/images/MEN_Gercek_Yasam_Verileri_Sili.jpg" width="1024" height="768" usemap="#Map" />
+        <map name="Map">
+          <area shape="rect" coords="55,693,134,764" href="javascript:popup('MEN_Gercek_Yasam_Verileri_Sili_R-01.png',0,0)">
+        </map>
+		<img src="media/images/MEN_Gercek_Yasam_Verileri_Sili_2-01.jpg" width="1024" height="768" usemap="#Map2" />
+        <map name="Map2">
+          <area shape="rect" coords="55,693,134,764" href="javascript:popup('MEN_Gercek_Yasam_Verileri_Sili_R-01.png',0,0);">
+        </map>
+	</div>
+	<script>
+		document.ontouchmove = function (e) { e.preventDefault(); };
+	</script>
+</body>
+
+</html>
